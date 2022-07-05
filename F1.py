@@ -18,6 +18,7 @@ print(sp500_table)
 df.head()
 #df.info()
 
+#comment out the table prints when finishing the script 
 
 #table is done
 #input how we want to find information. Name, Season(year)
