@@ -18,6 +18,8 @@ print(sp500_table)
 df.head()
 #df.info()
 
+Season_Dict = df.set_index("Season").T.to_dict('list)')
+Driver_Dict = df.set_index("Driver").T.to_dict('list)')
 #comment out the table prints when finishing the script 
 
 #table is done
@@ -27,9 +29,11 @@ Entered_Information = Entered_Information.lower()
 
 if Entered_Information == "season":
     Season_Year = print(input("What year? "))
+    print(Season_Dict)
 else:
     Driver_Name = print(input(str("Which driver? ")))
-    Driver_Name = Driver_Name.lower()
+    #Driver_Name = Driver_Name.title()
+    print(Driver_Dict)
 #code to give back season year + info
 #code to give back name + info
 
