@@ -12,14 +12,20 @@ table_f1 = pd.read_html('https://en.wikipedia.org/wiki/List_of_Formula_One_World
 len(table_f1)
 print(f'Total tables: {len(table_f1)}')
 df = table_f1[0]
+df.columns = ["Season", "Driver", "Age", "Chassis", "Engine", "Tires", "Poles", "Wins", "Podiums", "Laps", "Points", "Points2", "CLinched", "RacesRemaining", "Margin", "Margin2"]
 sp500_table= table_f1[0]
+
+sp500_table = sp500_table.drop([73, 74])
+sp500_table = sp500_table.drop(columns=['Engine', 'Tires', 'Poles', 'Podiums', 'Laps', 'Points2', "CLinched", "RacesRemaining", "Margin", "Margin2" ])
 print(sp500_table)
+df = sp500_table
+
 
 df.head()
 #df.info()
 
-Season_Dict = df.set_index("Season").T.to_dict('list)')
-Driver_Dict = df.set_index("Driver").T.to_dict('list)')
+Season_Dict = df.set_index("Season").T.to_dict('index')
+Driver_Dict = df.set_index("Driver").T.to_dict('series')
 #comment out the table prints when finishing the script 
 
 #table is done
@@ -27,13 +33,14 @@ Driver_Dict = df.set_index("Driver").T.to_dict('list)')
 Entered_Information = input(str("Would you like to find your information by the season, or driver? "))
 Entered_Information = Entered_Information.lower()
 
+
 if Entered_Information == "season":
     Season_Year = print(input("What year? "))
-    print(Season_Dict)
+    print(pd.DataFrame(Season_Dict))
 else:
     Driver_Name = print(input(str("Which driver? ")))
     #Driver_Name = Driver_Name.title()
-    print(Driver_Dict)
+    print(pd.DataFrame(Driver_Dict))
 #code to give back season year + info
 #code to give back name + info
 
