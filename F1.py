@@ -17,7 +17,7 @@ sp500_table= table_f1[0]
 
 sp500_table = sp500_table.drop([73, 74])
 sp500_table = sp500_table.drop(columns=['Engine', 'Tires', 'Poles', 'Podiums', 'Laps', 'Points2', "CLinched", "RacesRemaining", "Margin", "Margin2" ])
-print(sp500_table)
+#print(sp500_table)
 df = sp500_table
 
 df["Driver"]= df["Driver"].str[:-4]
@@ -43,6 +43,7 @@ if Entered_Information == "season":
     
 else:
     Driver_Name = input("Which driver? ")
+    Driver_Name = Driver_Name.title()
     Final_Driver = df.loc[df.Driver==Driver_Name]
     print(Final_Driver.to_string(index=False))
     
