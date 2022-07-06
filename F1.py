@@ -21,6 +21,7 @@ print(sp500_table)
 df = sp500_table
 
 
+
 df.head()
 #df.info()
 
@@ -35,12 +36,15 @@ Entered_Information = Entered_Information.lower()
 
 
 if Entered_Information == "season":
-    Season_Year = print(input("What year? "))
-    print(pd.DataFrame(Season_Dict))
+    Season_Year = input("What year? ")
+    Final_Season = df.loc[df.Season==Season_Year]
+    print(Final_Season.to_string(index=False))
+    
 else:
-    Driver_Name = print(input(str("Which driver? ")))
-    #Driver_Name = Driver_Name.title()
-    print(pd.DataFrame(Driver_Dict))
+    Driver_Name = input("Which driver? ")
+    Final_Driver = df.loc[df.Driver==Driver_Name]
+    print(Final_Driver.to_string(index=False))
+    
 #code to give back season year + info
 #code to give back name + info
 
