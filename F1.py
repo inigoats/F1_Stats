@@ -20,6 +20,7 @@ sp500_table = sp500_table.drop(columns=['Engine', 'Tires', 'Poles', 'Podiums', '
 print(sp500_table)
 df = sp500_table
 
+df["Driver"]= df["Driver"].str[:-4]
 
 
 df.head()
