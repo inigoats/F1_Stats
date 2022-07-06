@@ -32,20 +32,22 @@ Driver_Dict = df.set_index("Driver").T.to_dict('series')
 
 #table is done
 #input how we want to find information. Name, Season(year)
-Entered_Information = input(str("Would you like to find your information by the season, or driver? "))
-Entered_Information = Entered_Information.lower()
+while True:
+
+    Entered_Information = input(str("Would you like to find your information by the season, or driver? "))
+    Entered_Information = Entered_Information.lower()
 
 
-if Entered_Information == "season":
-    Season_Year = input("What year? ")
-    Final_Season = df.loc[df.Season==Season_Year]
-    print(Final_Season.to_string(index=False))
+    if Entered_Information == "season":
+        Season_Year = input("What year? ")
+        Final_Season = df.loc[df.Season==Season_Year]
+        print(Final_Season.to_string(index=False))
     
-else:
-    Driver_Name = input("Which driver? ")
-    Driver_Name = Driver_Name.title()
-    Final_Driver = df.loc[df.Driver==Driver_Name]
-    print(Final_Driver.to_string(index=False))
+    else:
+        Driver_Name = input("Which driver? ")
+        Driver_Name = Driver_Name.title()
+        Final_Driver = df.loc[df.Driver==Driver_Name]
+        print(Final_Driver.to_string(index=False))
     
 #code to give back season year + info
 #code to give back name + info
